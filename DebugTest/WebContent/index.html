@@ -14,14 +14,21 @@
 			['B1', 'B2', 'B3'],
 			['C1', 'C2', 'C3']
 		];
-		var sampleArrayB = sampleArrayA.reduce(toOneDimension);
-		for(var counterVar = 0; 
-		counterVar < sampleArrayB.length;
-		counterVar++){
-			document.write('sampleArrayB['+counterVar+']:');
-			document.write(sampleArrayB[counterVar]);
-			document,write('<br />');
+		var sampleArrayB = sampleArrayA.reduceRight(toOneDimension);
+		for ( var counterVar= 0; 
+		counterVar< sampleArrayB.length; 
+		counterVar++ ) {
+		document.write( 'sampleArrayB[' +counterVar+']: ' );
+		document.write( sampleArrayB[counterVar] );
+		document.write( '<br/>' );
 		}
 	</script>
+	<!-- 変更点 17行目reduce(右から左へ実行)→
+	reduceRight(左から右へ実行) -->
+	<!-- 行っている事
+	二次元配列(ここでいうsampleArrayAのこと。縦横に並んだもの)
+	を一次元配列(ここでいうsampleArrayBのこと。横一列に並んだもの)
+	に変換している
+	-->
 </body>
 </html>
