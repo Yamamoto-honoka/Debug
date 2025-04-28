@@ -7,14 +7,15 @@
 <body>
 	<script type = "text/javascript">
 		function toOneDimension(previousValue, currentValue){
-			return previousValue.concat(currentValue);
+			return currentValue.concat(previousValue);
 		}
 		var sampleArrayA = [
 			['A1', 'A2', 'A3'],
 			['B1', 'B2', 'B3'],
 			['C1', 'C2', 'C3']
 		];
-		var sampleArrayB = sampleArrayA.reduceRight(toOneDimension);
+		console.log(sampleArrayA);
+		var sampleArrayB = sampleArrayA.reduce(toOneDimension);
 		for ( var counterVar= 0; 
 		counterVar< sampleArrayB.length; 
 		counterVar++ ) {
@@ -22,9 +23,10 @@
 		document.write( sampleArrayB[counterVar] );
 		document.write( '<br/>' );
 		}
+		console.log(sampleArrayB);
 	</script>
-	<!-- 変更点 17行目reduce(右から左へ実行)→
-	reduceRight(左から右へ実行) -->
+	<!-- 変更点 10行目のpreviousValueとcurrentValueの位置を逆に
+	した -->
 	<!-- 行っている事
 	二次元配列(ここでいうsampleArrayAのこと。縦横に並んだもの)
 	を一次元配列(ここでいうsampleArrayBのこと。横一列に並んだもの)
