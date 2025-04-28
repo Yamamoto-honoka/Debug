@@ -6,16 +6,22 @@
 </head>
 <body>
 	<script type = "text/javascript">
+		console.log("1");
 		function toOneDimension(previousValue, currentValue){
+			console.log(`previousVal: ${previousValue}, 
+			currentValue: ${currentValue}`);
 			return currentValue.concat(previousValue);
-		}
+		};
+		console.log("2");
 		var sampleArrayA = [
 			['A1', 'A2', 'A3'],
 			['B1', 'B2', 'B3'],
 			['C1', 'C2', 'C3']
 		];
+		console.log("3");
 		console.log(sampleArrayA);
 		var sampleArrayB = sampleArrayA.reduce(toOneDimension);
+		console.log("5");
 		for ( var counterVar= 0; 
 		counterVar< sampleArrayB.length; 
 		counterVar++ ) {
@@ -23,7 +29,10 @@
 		document.write( sampleArrayB[counterVar] );
 		document.write( '<br/>' );
 		}
+		console.log("4");
 		console.log(sampleArrayB);
+		console.log(counterVar);
+		
 	</script>
 	<!-- 変更点 10行目のpreviousValueとcurrentValueの位置を逆に
 	した -->
@@ -31,6 +40,16 @@
 	二次元配列(ここでいうsampleArrayAのこと。縦横に並んだもの)
 	を一次元配列(ここでいうsampleArrayBのこと。横一列に並んだもの)
 	に変換している
+	行っている順は上から順番。
+	functionでcurrentValueとpreviousValueを連結している。
+	2回反復で全部の引数出せる為、反復回数は2回。
+	2回目の反復でcurrentValueにC1,C2,C3、previousValueにB1,B2,B3と
+	A1,A2,A3が入れられる為先にcurrentValueを入れる事で最後の配列を
+	最初に表示させられる。
+	var sampleArrayAはsampleArrayAの中身。
+	var sampleArrayBでsampleArrayAを使ってfunctionを実行。
+	for文でsampleBを表示。
+	行動としてはこんな感じ。
 	-->
 </body>
 </html>
